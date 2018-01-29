@@ -5,8 +5,8 @@ Candidate::Candidate(string n, string p)
 {
 	name = n;
 	party = p;
+	eliminated = false;
 }
-
 
 void Candidate::setName(string n)
 {
@@ -26,4 +26,21 @@ string Candidate::getName()
 string Candidate::getParty()
 {
 	return party;
+}
+
+void Candidate::eliminate()
+{
+	eliminated = true;
+}
+
+bool Candidate::isElimitaed()
+{
+	if (eliminated == false)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }

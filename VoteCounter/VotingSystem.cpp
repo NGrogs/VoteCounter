@@ -57,15 +57,14 @@ int main()
 	{
 		if (lineCount == 5)
 		{
+			// create newBallot
 			BallotPaper *newBallot = new BallotPaper(myArray);
 
-			// submit the array
+			// submit the newBallot to list array
 			BallotList.push_back(newBallot);
 
 			// reset lineCount 
 			lineCount = 0;
-			cout << "ballot added" << endl;
-
 		}
 		else 
 		{
@@ -81,23 +80,44 @@ int main()
 
 			// increment lineCount
 			lineCount++;
-			cout << lineCount << endl;
 		}
 
 	} //end while
 	myfile.close();
 
-	// TEST print the vector of ballots
+	// print the vector of ballots
 	vector<BallotPaper*>::iterator Biter = BallotList.begin();
 	for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
 	{
-		cout << (*Biter)->ballot[0][0] << " " << (*Biter)->ballot[0][1] << endl;
-		cout << (*Biter)->ballot[1][0] << " " << (*Biter)->ballot[1][1] << endl;
-		cout << (*Biter)->ballot[2][0] << " " << (*Biter)->ballot[2][1] << endl;
-		cout << (*Biter)->ballot[3][0] << " " << (*Biter)->ballot[3][1] << endl;
-		cout << (*Biter)->ballot[4][0] << " " << (*Biter)->ballot[4][1] << endl;
+		cout << "______________" << endl;
+		cout << "BALLOT ADDED" << endl;
+		cout << "--------------" << endl;
+		cout << "+" << (*Biter)->ballot[0][0] << " " << (*Biter)->ballot[0][1] << endl;
+		cout << "+" << (*Biter)->ballot[1][0] << " " << (*Biter)->ballot[1][1] << endl;
+		cout << "+" << (*Biter)->ballot[2][0] << " " << (*Biter)->ballot[2][1] << endl;
+		cout << "+" << (*Biter)->ballot[3][0] << " " << (*Biter)->ballot[3][1] << endl;
+		cout << "+" << (*Biter)->ballot[4][0] << " " << (*Biter)->ballot[4][1] << endl;
+		cout << "______________" << endl;
 		cout << endl;
 	}
+
+
+	// create a voteCounter for each candidate
+	std::vector<VoteCounter*> VoteCounterList;
+	for (int i=0; i < 5; i++)
+	{
+		VoteCounter *newVoteCounter = new VoteCounter(*CandidateList.at(i));
+		VoteCounterList.push_back(newVoteCounter);
+	}
+
+	// loop through the ballotList and add votes for the candidates in the VoteCounterList
+	vector<BallotPaper*>::iterator Biter = BallotList.begin();
+	for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
+	{
+		
+	}
+
+
 
 
 

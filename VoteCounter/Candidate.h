@@ -13,6 +13,7 @@ public:
 
 	std::string name;
 	std::string party;
+	bool eliminated;
 
 	Candidate(std::string n, std::string p);
 
@@ -21,6 +22,8 @@ public:
 	void setParty(std::string p);
 	std::string getName();
 	std::string getParty();
+	void eliminate();
+	bool isElimitaed();
 
 
 	
