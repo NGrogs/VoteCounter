@@ -11,6 +11,8 @@ public:
 
 	BallotPaper();
 
+	BallotPaper(string myArr[][5]);
+
 	void setPreference(int n, const Candidate &c);
 
 	Candidate *getPreference(int n);

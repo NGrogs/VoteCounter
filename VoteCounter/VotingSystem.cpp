@@ -51,21 +51,24 @@ int main()
 	BallotPaper *newBallot = new BallotPaper;
 
 	int lineCount = 0;
+	string myArray[5][5];
 
 	while (getline(myfile, line) && line != "END")
 	{
 		if (lineCount == 5)
 		{
+			BallotPaper *newBallot = new BallotPaper(myArray);
+
 			// submit the array
 			BallotList.push_back(newBallot);
 
 			// reset lineCount 
 			lineCount = 0;
 			cout << "ballot added" << endl;
+
 		}
 		else 
 		{
-
 			// get the candidate
 			string newName = line.substr(0, line.find("("));
 
@@ -73,11 +76,12 @@ int main()
 			string newVote = line.substr(line.find(":") + 1);
 
 			// store in 2d array
-			newBallot->ballot[lineCount][0] = newName;
-			newBallot->ballot[lineCount][1] = newVote;
+			myArray[lineCount][0] = newName;
+			myArray[lineCount][1] = newVote;
 
 			// increment lineCount
 			lineCount++;
+			cout << lineCount << endl;
 		}
 
 	} //end while
