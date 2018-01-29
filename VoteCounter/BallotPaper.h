@@ -7,6 +7,8 @@ class BallotPaper {
 
 public:
 
+	string ballot[5][5];
+
 	BallotPaper();
 
 	void setPreference(int n, const Candidate &c);

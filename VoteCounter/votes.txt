@@ -1,8 +1,8 @@
-Neil(Green):1
-Erik(Yellow):2
-David(Blue):3
-Jakub(Red):4
-Bill(Pink):5
+Neil(Green)
+Erik(Yellow)
+David(Blue)
+Jakub(Red)
+Bill(Pink)
 
 Neil(Green):1
 Erik(Yellow):2
@@ -10,8 +10,16 @@ David(Blue):3
 Jakub(Red):4
 Bill(Pink):5
 
-Neil(Green):1
-Erik(Yellow):2
+Neil(Green):2
+Erik(Yellow):5
+David(Blue):4
+Jakub(Red):3
+Bill(Pink):1
+
+Neil(Green):5
+Erik(Yellow):4
 David(Blue):3
-Jakub(Red):4
-Bill(Pink):5
+Jakub(Red):2
+Bill(Pink):1
+
+END
