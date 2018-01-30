@@ -1,6 +1,11 @@
 // Neil Grogan C00205522
 #include "Candidate.h"
 
+Candidate::Candidate()
+{
+	
+}
+
 Candidate::Candidate(string n, string p)
 {
 	name = n;

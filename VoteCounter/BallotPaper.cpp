@@ -18,11 +18,11 @@ BallotPaper::BallotPaper(string myArr[][5])
 	}
 }
 
-void BallotPaper::setPreference(int n, const Candidate &c)
+void BallotPaper::setPreference(int n, Candidate c)
 {
 	for (int i = 0; i < 5; i++)
 	{
-		if (ballot[i][0] == c.getName)
+		if (ballot[i][0] == c.getName())
 		{
 			ballot[i][1] = n;
 		}

@@ -7,7 +7,9 @@ class VoteCounter {
 public:
 
 	int numVotes = 0;
-	VoteCounter(Candidate &c);
+	Candidate C;
+
+	VoteCounter(Candidate& c);
 
 	void addVote();
 	int getVotes();

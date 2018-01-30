@@ -15,8 +15,8 @@ public:
 	std::string party;
 	bool eliminated;
 
+	Candidate();
 	Candidate(std::string n, std::string p);
-
 
 	void setName(std::string n);
 	void setParty(std::string p);
