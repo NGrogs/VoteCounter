@@ -23,7 +23,7 @@ public:
 	std::string getName();
 	std::string getParty();
 	void eliminate();
-	bool isElimitaed();
+	bool isEliminated();
 
 
 	

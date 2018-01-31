@@ -38,7 +38,7 @@ void Candidate::eliminate()
 	eliminated = true;
 }
 
-bool Candidate::isElimitaed()
+bool Candidate::isEliminated()
 {
 	if (eliminated == false)
 	{
