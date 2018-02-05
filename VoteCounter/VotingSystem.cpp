@@ -11,18 +11,6 @@
 #include <algorithm>
 using namespace std;
 
-bool checkEliminated(Candidate &c)
-{
-	if (c.isEliminated() == false)
-	{
-		return false;
-	}
-	else
-	{
-		return true;
-	}
-}
-
 int main()
 {
 	//create vector for candidates
@@ -225,7 +213,6 @@ int main()
 		
 	}// end of while loop
 
-	
 	// print the winner
 	cout << endl << "------------Winner is--------------" << endl << endl;
 
