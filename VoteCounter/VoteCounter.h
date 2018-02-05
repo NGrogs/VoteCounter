@@ -3,13 +3,13 @@
 
 class VoteCounter {
 
-	bool winnerFound = false;
+	
 public:
 
 	int numVotes = 0;
-	Candidate C;
+	string name;
 
-	VoteCounter(Candidate &c);
+	VoteCounter(string n);
 
 	void addVote();
 	int getVotes();

@@ -7,7 +7,7 @@ BallotPaper::BallotPaper()
 
 }
 
-BallotPaper::BallotPaper(string myArr[][5])
+BallotPaper::BallotPaper(string myArr[][2])
 {
 	for (int i = 0; i < 5; i++)
 	{

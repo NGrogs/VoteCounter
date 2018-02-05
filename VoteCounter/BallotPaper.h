@@ -12,7 +12,7 @@ public:
 
 	BallotPaper();
 
-	BallotPaper(string myArr[][5]);
+	BallotPaper(string myArr[][2]);
 
 	void setPreference(int n, Candidate c);
 

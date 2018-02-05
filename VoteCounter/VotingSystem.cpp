@@ -11,7 +11,7 @@
 #include <algorithm>
 using namespace std;
 
-bool isEliminated(Candidate &c)
+bool checkEliminated(Candidate &c)
 {
 	if (c.isEliminated() == false)
 	{
@@ -63,7 +63,7 @@ int main()
 	//BallotPaper newBallot = BallotPaper();
 
 	int lineCount = 0;
-	string myArray[5][5];
+	string myArray[5][2];
 
 	while (getline(myfile, line) && line != "END")
 	{
@@ -114,122 +114,103 @@ int main()
 
 	}
 
+
+	///// calculate the votes for each candidate /////
+
+
 	// create a voteCounter for each candidate
 	std::vector<VoteCounter> VoteCounterList;
-	for (int i = 0; i < 5; i++)
+	for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
 	{
-		VoteCounter newVoteCounter = VoteCounter(CandidateList.at(i));
+		VoteCounter newVoteCounter(iter->getName());
 		VoteCounterList.push_back(newVoteCounter);
+	}
+	
+
+	// loop through the ballotlist and distrubute the votes
+	vector<VoteCounter>::iterator Viter = VoteCounterList.begin();
+	for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
+	{
+		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
+		{
+			if (Biter->getPreference(1) == Viter->name)
+			{
+				Viter->addVote();
+			}
+		}
 	}
 
 
-	vector<VoteCounter>::iterator Viter = VoteCounterList.begin();
-	bool winnerFound = false;
-	int loopNum = 1;
-	// get the first candidate to assign lowest votes to
-	int lowestVotes = VoteCounterList.begin()->getVotes();
-	while (winnerFound == false)
+	// find candidate with lowest votes
+	string eliminatedCandidate;
+	int lowestVotes = VoteCounterList.at(0).getVotes();
+	for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
 	{
-		// loop through the ballotList and add votes for the candidates in the VoteCounterList
-		for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
+		if (Viter->getVotes() < lowestVotes)
 		{
-			for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
+			lowestVotes = Viter->getVotes();
+			eliminatedCandidate = Viter->name;
+		}
+		// output the names and votes
+		cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
+	}
+
+	cout << eliminatedCandidate << " has been eliminated" << endl;
+
+	// find ballot where eliminatedCandidate is 1st pref, and assign the 2nd pref 
+	for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
+	{
+		if (Biter->getPreference(1) == eliminatedCandidate)
+		{
+			for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
 			{
-				// if the names match and they recieved 1st preference & still running
-				if ((Biter)->getPreference(loopNum) == (iter)->getName() && (iter)->isEliminated() == false)
+				if (Viter->name == Biter->getPreference(2))
 				{
-					// increment votes for that person
-					for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
-					{
-						if ((Viter)->C.getName() == (iter)->getName())
-						{
-							(Viter)->addVote();
-						}
-					}
+					cout << "hi" << endl;
+					Viter->addVote();
 				}
 			}
 		}
+	}
 
-		// test votes
-		cout << endl << "------------Votes after round------------" << endl << endl;
-		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
-		{
-			if (Viter->C.isEliminated() == false)
-			{
-				cout << (Viter)->C.getName() << " has " << (Viter)->getVotes() << endl;
-			}
-		}
+	// test print (redistrubution works for 1 loop)
+	for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
+	{
+		cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
+	}
 
-		// decide who to eliminate (lowest votes)
-		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
-		{
-			if ((Viter)->getVotes() < lowestVotes)
-			{
-				lowestVotes = (Viter)->getVotes();
-			}
-		}
 
-		//set that candidate to be eliminated
-		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
-		{
-			if ((Viter)->getVotes() == lowestVotes)
-			{
-				for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
-				{
-					if ((iter)->getName() == (Viter)->C.getName())
-					{
-						(iter)->eliminate();
-						cout << (iter)->getName() << " has been eliminated" << endl;
-					}
-				}
-			}
-		}
 
-		system("pause");
 
-		// remove the eliminated candidates from the VoteCounterList
-		for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
-		{
-			if (iter->isEliminated() == true)
-			{
-				CandidateList.erase(remove_if(CandidateList.begin(), CandidateList.end(), isEliminated), CandidateList.end());
-			}
-		}
-		
-
-		// check for a winner
-		int count = 0;
-		for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
-		{
-			if ((iter)->isEliminated() == false)
-			{
-				count++;
-			}
-		}
-		if (count == 1)
-		{
-			winnerFound = true;
-		}
-
-		// redistribute the votes
-		loopNum++;
-
-	}// end of while
+	
 	
 
 	// print the winner
-	cout << endl << "------------Winner is...------------" << endl << endl;
+	cout << endl << "------------Winner is--------------" << endl << endl;
+
+	// calculate the winner
+	string winner = VoteCounterList.at(1).name;
+	int mostVotes = VoteCounterList.at(1).getVotes() ;
+	for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
+	{
+		if (Viter->getVotes() > mostVotes)
+		{
+			mostVotes = Viter->getVotes();
+			winner = Viter->name;
+		}
+	}
+	
+	// output the winner
 	for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
 	{
-		if ((iter)->isEliminated() == false)
+		if ((iter)->getName() == winner)
 		{
 			cout << (iter)->getName() << " of the ";
 			cout << (iter)->getParty() << " party, gratz" << endl;
 		}
 	}
+
 	
-
-
 
 	return 0;
 }
