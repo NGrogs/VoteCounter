@@ -182,20 +182,38 @@ int main()
 
 		// find ballot where eliminatedCandidate is 1st pref, and assign the *nd pref 
 		for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
-		{
-			if (std::find(EliminatedList.begin(), EliminatedList.end(), Biter->getPreference(1)) != EliminatedList.end())
+		{			
+			if (EliminatedList.back() == Biter->getPreference(n - 1))
 			{
 				for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
 				{
-					if (Viter->name == Biter->getPreference(n))
+					// issue
+					bool found = true;
+					do 
 					{
-						Viter->addVote();
-					}
+						for (int i = 0; i < CandidateList.size(); i++)
+						{
+							if (std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end())
+							{
+								// do nothing if their eliminated
+							}
+							else if (Viter->name == Biter->getPreference(n))
+							{
+								Viter->addVote();
+								found = true;
+								break;
+							}
+						}
+					} while (found == false);
 				}
 			}
 		}
+		
+	//	std::find(EliminatedList.begin(), EliminatedList.end(), Biter->getPreference(n - 1)) != EliminatedList.end()
+		
 
-		// test print (redistrubution works for 1 loop)
+
+		// output votes
 		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
 		{
 			if (std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end())
@@ -211,6 +229,8 @@ int main()
 		numCandidates--;
 		n++;
 		
+		system("pause");
+
 	}// end of while loop
 
 	// print the winner
@@ -234,8 +254,7 @@ int main()
 	{
 		if ((iter)->getName() == winner)
 		{
-			cout << (iter)->getName() << " of the ";
-			cout << (iter)->getParty() << " party, gratz" << endl;
+			cout << (iter)->getName() << " of the " << (iter)->getParty() << " party, gratz" << endl;
 		}
 	}
 
