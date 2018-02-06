@@ -69,7 +69,6 @@ int main()
 	} //end while
 	myfile.close();
 
-	
 	vector<BallotPaper>::iterator Biter = BallotList.begin();
 	std::vector<VoteCounter> VoteCounterList;
 	for (iter = CandidateList.begin(); iter != CandidateList.end(); iter++)
@@ -125,10 +124,7 @@ int main()
 		// output votes
 		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
 		{
-			if (std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end())
-			{
-			}
-			else
+			if (!(std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end()))
 			{
 				cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
 			}
@@ -159,10 +155,7 @@ int main()
 				lowestVotes = Viter->getVotes();
 				eliminatedCandidate = Viter->name;
 			}
-			if (std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end())
-			{
-			}
-			else
+			if (!(std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end()))
 			{
 				cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
 			}
