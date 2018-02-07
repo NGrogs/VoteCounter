@@ -160,7 +160,7 @@ int main()
 				cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
 			}
 		}
-		cout << "------------------------" << endl;
+		cout << endl << "------------------------" << endl;
 		cout << eliminatedCandidate << " has been eliminated" << endl;
 		cout << "------------------------" << endl;
 		EliminatedList.push_back(eliminatedCandidate);
