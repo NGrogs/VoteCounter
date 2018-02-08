@@ -8,16 +8,15 @@ class BallotPaper {
 
 public:
 
-	string ballot[5][2];
+	string ballot[100][2];
+	int ballotSize;
 
 	BallotPaper();
 
-	BallotPaper(string myArr[][2]);
+	BallotPaper(string myArr[][2], int size);
 
 	void setPreference(int n, Candidate c);
 
 	string getPreference(int n);
-
-
 
 };

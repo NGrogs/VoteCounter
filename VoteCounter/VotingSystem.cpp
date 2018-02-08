@@ -47,13 +47,14 @@ int main()
 	//create a vector for the ballots
 	std::vector<BallotPaper> BallotList;
 	int lineCount = 0;
-	string myArray[5][2];
+	string myArray[100][2];
+	
 
 	while (getline(myfile, line) && line != "END")
 	{
-		if (lineCount == 5)
+		if (lineCount == CandidateList.size())
 		{
-			BallotPaper newBallot = BallotPaper(myArray);
+			BallotPaper newBallot = BallotPaper(myArray, CandidateList.size());
 			BallotList.push_back(newBallot);
 			lineCount = 0;
 		}
@@ -79,7 +80,7 @@ int main()
 
 	// loop through the ballotlist and distrubute the votes
 	vector<VoteCounter>::iterator Viter = VoteCounterList.begin();
-	
+
 	int numCandidates = VoteCounterList.size();
 	std::vector<string> EliminatedList;
 	string eliminatedCandidate;
@@ -100,7 +101,7 @@ int main()
 				VoteCounterList.push_back(newVoteCounter);
 			}
 		}
-		
+
 		for (Biter = BallotList.begin(); Biter != BallotList.end(); Biter++)
 		{
 			for (int i = 0; i < CandidateList.size(); i++)
@@ -118,7 +119,7 @@ int main()
 					}
 					break;
 				}
-			}	
+			}
 		}
 
 		// output votes
@@ -162,7 +163,7 @@ int main()
 		}
 		cout << endl << "------------------------" << endl;
 		cout << eliminatedCandidate << " has been eliminated" << endl;
-		cout << "------------------------" << endl;
+		cout << "------------------------" << endl << endl;
 		EliminatedList.push_back(eliminatedCandidate);
 
 	}// end of while loop
@@ -180,7 +181,7 @@ int main()
 	{
 		if ((iter)->getName() == winner)
 		{
-			cout << (iter)->getName() << " of the " << (iter)->getParty() << " party, gratz" << endl;
+			cout << (iter)->getName() << " of the " << (iter)->getParty() << " party, gratz" << endl << endl;
 		}
 	}
 
