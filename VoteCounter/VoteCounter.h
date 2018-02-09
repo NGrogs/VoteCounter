@@ -1,3 +1,4 @@
+//Neil Grogan
 #pragma once
 #include "Candidate.h"
 
@@ -13,15 +14,5 @@ public:
 
 	void addVote();
 	int getVotes();
-
-
-
-
-
-
-
-
-
-
 
 };
