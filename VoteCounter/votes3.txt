@@ -1,0 +1,17 @@
+Neil(Green)
+Erik(Yellow)
+David(Blue)
+
+Neil(Green):1
+Erik(Yellow):2
+David(Blue):3
+
+Neil(Green):2
+Erik(Yellow):1
+David(Blue):3
+
+Neil(Green):3
+Erik(Yellow):2
+David(Blue):1
+
+END

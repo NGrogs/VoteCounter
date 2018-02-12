@@ -19,7 +19,9 @@ int main()
 	cout << "------------THE CANDIDATES------------" << endl << endl;
 
 	string line;
-	ifstream myfile("votes.txt");
+	//ifstream myfile("votes.txt");
+	//ifstream myfile("votes2.txt");
+	ifstream myfile("votes3.txt");
 	while (getline(myfile, line) && line != "")
 	{
 		// create the candidates
