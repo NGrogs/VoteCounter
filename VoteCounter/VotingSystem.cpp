@@ -63,7 +63,7 @@ int main()
 		}
 		else
 		{
-			string newName = line.substr(0, line.find("("));
+			string newName = line.substr(0, line.find(":"));
 			string newVote = line.substr(line.find(":") + 1);
 			myArray[lineCount][0] = newName;
 			myArray[lineCount][1] = newVote;

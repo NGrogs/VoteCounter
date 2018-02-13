@@ -4,70 +4,70 @@ C(Orange)
 D(Red)
 E(Purple)
 
-A(Green):1
-B(Blue):2
-C(Orange):3
-D(Red):4
-E(Purple):5
+A:1
+B:2
+C:3
+D:4
+E:5
 
-A(Green):4
-B(Blue):2
-C(Orange):1
-D(Red):3
-E(Purple):5
+A:4
+B:2
+C:1
+D:3
+E:5
 
-A(Green):2
-B(Blue):1
-C(Orange):3
-D(Red):5
-E(Purple):4
+A:2
+B:1
+C:3
+D:5
+E:4
 
-A(Green):5
-B(Blue):4
-C(Orange):3
-D(Red):2
-E(Purple):1
+A:5
+B:4
+C:3
+D:2
+E:1
 
-A(Green):1
-B(Blue):2
-C(Orange):3
-D(Red):4
-E(Purple):5
+A:1
+B:2
+C:3
+D:4
+E:5
 
-A(Green):3
-B(Blue):1
-C(Orange):4
-D(Red):5
-E(Purple):2
+A:3
+B:1
+C:4
+D:5
+E:2
 
-A(Green):5
-B(Blue):4
-C(Orange):3
-D(Red):2
-E(Purple):1
+A:5
+B:4
+C:3
+D:2
+E:1
 
-A(Green):5
-B(Blue):4
-C(Orange):3
-D(Red):2
-E(Purple):1
+A:5
+B:4
+C:3
+D:2
+E:1
 
-A(Green):4
-B(Blue):3
-C(Orange):2
-D(Red):1
-E(Purple):5
+A:4
+B:3
+C:2
+D:1
+E:5
 
-A(Green):3
-B(Blue):4
-C(Orange):1
-D(Red):2
-E(Purple):5
+A:3
+B:4
+C:1
+D:2
+E:5
 
-A(Green):1
-B(Blue):2
-C(Orange):3
-D(Red):4
-E(Purple):5
+A:1
+B:2
+C:3
+D:4
+E:5
 
 END

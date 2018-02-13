@@ -2,16 +2,16 @@ Neil(Green)
 Erik(Yellow)
 David(Blue)
 
-Neil(Green):1
-Erik(Yellow):2
-David(Blue):3
+Neil:1
+Erik:2
+David:3
 
-Neil(Green):2
-Erik(Yellow):1
-David(Blue):3
+Neil:2
+Erik:1
+David:3
 
-Neil(Green):3
-Erik(Yellow):2
-David(Blue):1
+Neil:3
+Erik:2
+David:1
 
 END
