@@ -21,7 +21,8 @@ int main()
 	string line;
 	//ifstream myfile("votes.txt");
 	//ifstream myfile("votes2.txt");
-	ifstream myfile("votes3.txt");
+	//ifstream myfile("votes3.txt");
+	ifstream myfile("votes4.txt");
 	while (getline(myfile, line) && line != "")
 	{
 		// create the candidates
@@ -121,15 +122,6 @@ int main()
 					}
 					break;
 				}
-			}
-		}
-
-		// output votes
-		for (Viter = VoteCounterList.begin(); Viter != VoteCounterList.end(); Viter++)
-		{
-			if (!(std::find(EliminatedList.begin(), EliminatedList.end(), Viter->name) != EliminatedList.end()))
-			{
-				cout << Viter->name << " has " << Viter->getVotes() << " votes" << endl;
 			}
 		}
 
